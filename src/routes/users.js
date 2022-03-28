@@ -63,8 +63,8 @@ router.post(
         password,
         confirmPassword,
       });
-      newUser.encryptPassword(password);
-      newUser.passowrd = await newUser.save();
+      newUser.password = await newUser.encryptPassword(password);
+      await newUser.save();
       req.flash("success_msg", "Account created successfully");
       res.redirect("/users/signin");
     }
