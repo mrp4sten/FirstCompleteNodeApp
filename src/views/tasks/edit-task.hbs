@@ -1,11 +1,5 @@
 <div class="col-md-4 mx-auto">
-  {{#each errors}}
-    <div class="alert alert-dismissible alert-danger">
-      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>Error!</strong>
-      {{this.msg}}
-    </div>
-  {{/each}}
+  {{> validations}}
   <div class="card text-white bg-dark mb-3">
     <div class="card-header">
       <h3 class="card-title">Update Task</h3>

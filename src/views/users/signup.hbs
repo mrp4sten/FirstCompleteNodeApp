@@ -1,1 +1,75 @@
-<h1>Sign Up</h1>
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    {{> validations}}
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">
+          Account Register
+        </h4>
+      </div>
+      <div class="card-body">
+        <form action="/users/signup" method="POST">
+          <div class="form-group">
+            <label class="form-label" for="name">Name:</label>
+            <input
+              class="form-control"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Name"
+              value="{{name}}"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="lastName">Lastname:</label>
+            <input
+              class="form-control"
+              type="text"
+              name="lastname"
+              id="lastname"
+              placeholder="Lastname"
+              value="{{lastname}}"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="username">Username:</label>
+            <input
+              class="form-control"
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Username"
+              value="{{username}}"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password">Password:</label>
+            <input
+              class="form-control"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              value="{{password}}"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="confirmPassword">Confirm Password:</label>
+            <input
+              class="form-control"
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+            />
+          </div>
+          <div class="d-flex flex-row-reverse mt-3">
+            <div class="form-group">
+              <button type="submit" class="btn btn-outline-success">Sign Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

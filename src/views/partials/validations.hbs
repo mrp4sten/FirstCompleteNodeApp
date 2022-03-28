@@ -1,0 +1,14 @@
+{{#each errors}}
+  <div class="alert alert-dismissible alert-danger">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Error!</strong>
+    {{this.msg}}
+  </div>
+{{/each}}
+{{#each errors_personal}}
+  <div class="alert alert-dismissible alert-danger">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Error!</strong>
+    {{this.text}}
+  </div>
+{{/each}}
