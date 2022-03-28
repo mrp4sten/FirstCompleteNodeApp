@@ -1,0 +1,47 @@
+<div class="col-md-4 mx-auto">
+  {{#each errors}}
+    <div class="alert alert-dismissible alert-danger">
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      <strong>Error!</strong>
+      {{this.msg}}
+    </div>
+  {{/each}}
+  <div class="card text-white bg-dark mb-3">
+    <div class="card-header">
+      <h3 class="card-title">New Task</h3>
+    </div>
+    <div class="card-body">
+      <form action="/tasks/new-task" method="POST">
+        <div class="form-group">
+          <label for="title" class="form-label">
+            Task title:
+          </label>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            class="form-control"
+            placeholder="Task title"
+            autofocus
+          />
+        </div>
+        <div class="form-group">
+          <label for="description" class="form-label mt-2">Task
+            description:</label>
+          <textarea
+            name="description"
+            id="description"
+            class="form-control"
+            placeholder="Task description"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <button
+            class="btn btn-outline-success mt-4"
+            type="submit"
+          >Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
