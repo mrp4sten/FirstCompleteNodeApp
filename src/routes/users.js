@@ -2,10 +2,20 @@ const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const User = require("../models/User");
+const passport = require("passport");
 
 router.get("/users/signin", (req, res) => {
   res.render("users/signin");
 });
+
+router.post(
+  "/users/signin",
+  passport.authenticate("local", {
+    successRedirect: "/tasks",
+    failureRedirect: "/users/signin",
+    failureFlash: true,
+  })
+);
 
 router.get("/users/signup", (req, res) => {
   res.render("users/signup");
@@ -16,10 +26,12 @@ router.post(
   body("name", "Name is required").trim().notEmpty(),
   body("lastname", "Lastname is required").trim().notEmpty(),
   body("username", "Username is required").trim().notEmpty(),
+  body("email", "Email is required").trim().notEmpty(),
+  body("email", "Email format is not correct").isEmail(),
   body("password", "Password is required").trim().notEmpty(),
   body("confirmPassword", "Confirm Password is required").trim().notEmpty(),
   async (req, res) => {
-    const { name, lastname, username, password, confirmPassword } = req.body;
+    const { name, lastname, username, email, password, confirmPassword } = req.body;
     const errors = validationResult(req);
 
     let errors_personal = [];
@@ -43,6 +55,7 @@ router.post(
         name,
         lastname,
         username,
+        email,
         password,
         confirmPassword,
       });
@@ -52,6 +65,7 @@ router.post(
         name,
         lastname,
         username,
+        email,
         password,
         confirmPassword,
       });
@@ -60,6 +74,7 @@ router.post(
         name,
         lastname,
         username,
+        email,
         password,
         confirmPassword,
       });

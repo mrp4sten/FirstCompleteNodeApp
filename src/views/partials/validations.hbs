@@ -12,3 +12,10 @@
     {{this.text}}
   </div>
 {{/each}}
+{{#if error}}
+  <div class="alert alert-dismissible alert-danger">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Error!</strong>
+    {{error}}
+  </div>
+{{/if}}
