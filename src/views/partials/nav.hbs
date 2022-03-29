@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="/img/nodejs.png" alt="nodejs" class="w-75" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+      aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+        {{#if user}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">Tasks</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/tasks">All Tasks</a>
+            <a class="dropdown-item" href="/tasks/add">Add Task</a>
+          </div>
+        </li>
+        {{/if}}
+      </ul>
+      <ul class="navbar-nav">
+        {{#if user}}
+        <li class="nav-item">
+          <a class="nav-link" href="/users/logout">Logout</a>
+        </li>
+        {{else}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+            aria-expanded="false">Account</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/users/signin">Signin</a>
+            <a class="dropdown-item" href="/users/signup">Signup</a>
+          </div>
+        </li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>
