@@ -46,8 +46,6 @@ app.use((req, res, next) => {
 
 // routes
 app.use(require("./routes/index"));
-app.use(require("./routes/patients"));
-app.use(require("./routes/stock"));
 app.use(require("./routes/tasks"));
 app.use(require("./routes/users"));
 

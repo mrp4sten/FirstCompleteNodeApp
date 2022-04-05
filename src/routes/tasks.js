@@ -43,12 +43,27 @@ router.get("/tasks/edit/:id", isAuthenticated, async (req, res) => {
   res.render("../views/tasks/edit-task", { task });
 });
 
-router.put("/tasks/edit-task/:id", isAuthenticated, async (req, res) => {
-  const { title, description } = req.body;
-  await Task.findByIdAndUpdate(req.params.id, { title, description });
-  req.flash("success_msg", "Task updated successfully");
-  res.redirect("/tasks");
-});
+router.put(
+  "/tasks/edit-task/:id",
+  isAuthenticated,
+  body("title", "Title is required").trim().notEmpty(),
+  body("description", "Description is required").trim().notEmpty(),
+  async (req, res) => {
+    const { title, description } = req.body;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.redirect("/tasks/edit/6242b319ece6d9f5c940e9b7", {
+        errors: errors.array(),
+        title,
+        description,
+      });
+    } else {
+      await Task.findByIdAndUpdate(req.params.id, { title, description });
+      req.flash("success_msg", "Task updated successfully");
+      res.redirect("/tasks");
+    }
+  }
+);
 
 router.delete("/tasks/delete/:id", isAuthenticated, async (req, res) => {
   await Task.findByIdAndDelete(req.params.id);
