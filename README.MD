@@ -25,4 +25,4 @@ for work with MongoDB, express-validator for validations, connect-flash for mess
 
 Thanks for watch my project!
 
-<img src="https://giphy.com/embed/XIFtEmJkAiR32" width="385px" align="center">
+<img src="https://media.giphy.com/media/XIFtEmJkAiR32/giphy.gif" width="385px" align="center">
