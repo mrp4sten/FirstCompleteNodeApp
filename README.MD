@@ -24,4 +24,5 @@ for work with MongoDB, express-validator for validations, connect-flash for mess
 ![Removing task](/img/taskRemoved.png)
 
 Thanks for watch my project!
-![Thanks](https://giphy.com/embed/XIFtEmJkAiR32)
+
+<img src="https://giphy.com/embed/XIFtEmJkAiR32" width="385px" align="center">
